@@ -1,49 +1,82 @@
-<!-- Define o título da página -->
-<div align="center">
-<h1>Calculadora de Filamento - 3DSQUAD</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Filamento - 3DSQUAD</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-<!-- Cria um formulário para inserir as informações -->
-<form>
-  <!-- Adiciona um texto de instrução -->
-  <p>Preencha as informações abaixo</p>
+  .background {
+    background-image: url('https://cdn.discordapp.com/attachments/1013524753904042056/1213946119533633627/bg_calc.gif?ex=65f7526c&is=65e4dd6c&hm=8b195bf6e8e48ea2c8df9730c1cc2422bb2735ff8e41c7826a5868b419b400a0&');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
 
-  <!-- Adiciona um campo de entrada para o peso do filamento -->
-  <label for="weight">Peso do filamento com carretel (apenas números, em gramas):</label><br>
-  <input type="text" id="weight" name="weight"><br>
+  .container {
+    background-color: rgba(255, 255, 255, 0.3); /* Ajuste a opacidade conforme necessário */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra box */
+  }
 
-  <!-- Adiciona um campo de seleção para o tipo de filamento -->
-  <label for="type">Tipo de filamento:</label><br>
-  <select id="type" name="type">
-    <option value="ABS">ABS</option>
-    <option value="PLA">PLA</option>
-    <option value="TPU">TPU</option>
-  </select><br>
+  h1 {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
 
-  <!-- Adiciona um botão para calcular o resultado -->
-  <input type="submit" value="Calcular">
-</form> 
+<div class="background">
+  <div class="container">
+    <h1>Calculadora de Filamento - 3DSQUAD</h1>
+    
+    <form>
+      <p>Preencha as informações abaixo</p>
 
-<!-- Adiciona um elemento de texto para exibir o resultado -->
-<p>Resultado: <span id="resultado"></span></p>
+      <label for="weight">Peso do filamento com carretel (apenas números, em gramas):</label><br>
+      <input type="text" id="weight" name="weight"><br>
 
-<!-- Adiciona uma imagem -->
-<img src="https://cdn.discordapp.com/attachments/1013524753904042056/1059660205400539166/150.png">
+      <label for="type">Tipo de filamento:</label><br>
+      <select id="type" name="type">
+        <option value="ABS">ABS</option>
+        <option value="PLA">PLA</option>
+        <option value="TPU">TPU</option>
+        <option value="PETG">PETG</option>
+        <option value="HIPS">HIPS</option>
+      </select><br>
 
-<!-- Adiciona um texto de instrução -->
-  <p>Criado e compilado por iago | © 2023 3dsquadCalculator | ®3DSQUAD FACTORY TODOS OS DIREITOS RESERVADOS.
-</p>
+      <input type="submit" value="Calcular">
+    </form> 
 
+    <p>Resultado: <span id="resultado"></span></p>
+
+    <p>Criado por iago | © 2024 3dsquadCalculator | ®3DSQUAD FACTORY TODOS OS DIREITOS RESERVADOS.</p>
+  </div>
 </div>
 
 <script>
-  // // Define o peso do carretel vazio (200 gramas)
+  // Define o peso do carretel vazio (200 gramas)
 const emptySpoolWeight = 200;
 
-// Define a densidade do filamento (ABS, PLA e TPU)
+// Define a densidade do filamento (ABS, PLA, TPU, PETG e HIPS)
 const filamentDensity = {
-  ABS: 1.039,
+  ABS: 1.02,
   PLA: 1.185,
-  TPU: 1.20
+  TPU: 1.13,
+  PETG: 1.24,
+  HIPS: 1.04
 };
 
 // Adiciona um evento de submit ao formulário
@@ -73,3 +106,7 @@ document.querySelector('form').addEventListener('submit', event => {
   document.querySelector('#resultado').innerHTML = `${length.toFixed(2)} metros de filamento no carretel.`;
 });
 </script>
+
+</body>
+</html>
+
